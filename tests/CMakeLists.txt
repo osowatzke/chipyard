@@ -92,6 +92,7 @@ add_executable(symmetric symmetric.c)
 add_executable(bm_matmul bm_matmul.c)
 add_executable(bm_2Dconvo bm_2Dconvo.c)
 add_executable(bm_matmulvec bm_matmulvec.c)
+add_executable(matmul_distortion matmul_distortion.c)
 
 #################################
 # Disassembly
@@ -135,6 +136,7 @@ add_dump_target(symmetric)
 add_dump_target(bm_matmul)
 add_dump_target(bm_2Dconvo)
 add_dump_target(bm_matmulvec)
+add_dump_target(matmul_distortion)
 
 target_link_libraries(cnn_hw_accelerator PRIVATE m)
 
