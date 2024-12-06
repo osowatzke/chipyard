@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include<stdint.h>
 
 #define N 128
 
@@ -15,7 +16,7 @@ void matrix_vector_multiply(float A[N][N], float v[N], float ref[N]) {
 }
 
 // Function to calculate normalized distortion
-void calculate_normalized_distortion(float ref[N], float meas[N], float *mean_distortion, float *max_distortion) {
+void calculate_normalized_distortion(float ref[N], float meas[N], uint64_t *mean_distortion, uint64_t *max_distortion) {
     float numerator = 0.0;
     float denominator = 0.0;
     float max_dist = 0.0;
@@ -35,7 +36,7 @@ void calculate_normalized_distortion(float ref[N], float meas[N], float *mean_di
 
 int main() {
     float A[N][N], v[N], ref[N], meas[N];
-    float mean_distortion, max_distortion;
+    uint64_t mean_distortion, max_distortion;
 
     // Initialize matrix A and vector v
     for (int i = 0; i < N; i++) {
@@ -54,8 +55,8 @@ int main() {
 
     // Output results
     printf("Matrix-Vector Multiplication completed.\n");
-    printf("Mean Normalized Distortion: %.6f\n", mean_distortion);
-    printf("Max Distortion: %.6f\n", max_distortion);
+    printf("Mean Normalized Distortion: %lu\n", mean_distortion);
+    printf("Max Distortion: %lu\n", max_distortion);
 
     return 0;
 }
