@@ -136,6 +136,7 @@ add_dump_target(bm_matmul)
 add_dump_target(bm_2Dconvo)
 add_dump_target(bm_matmulvec)
 
+target_link_libraries(cnn_hw_accelerator PRIVATE m)
 
 # Add custom command to generate spiflash.img from spiflash.py
 add_custom_command(
