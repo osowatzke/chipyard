@@ -70,6 +70,7 @@ add_link_options(-T ${LINKER_SCRIPT})
 #################################
 
 add_executable(dma dma.c)
+add_executable(cnn_hw_accelerator cnn_hw_accelerator.c)
 add_executable(pwm pwm.c)
 add_executable(blkdev blkdev.c)
 add_executable(accum accum.c)
@@ -113,6 +114,7 @@ function(add_dump_target target_name)
 endfunction()
 
 add_dump_target(dma)
+add_dump_target(cnn_hw_accelerator)
 add_dump_target(pwm)
 add_dump_target(blkdev)
 add_dump_target(accum)
@@ -136,6 +138,7 @@ add_dump_target(bm_2Dconvo)
 add_dump_target(bm_matmulvec)
 add_dump_target(matmul_distortion)
 
+target_link_libraries(cnn_hw_accelerator PRIVATE m)
 
 # Add custom command to generate spiflash.img from spiflash.py
 add_custom_command(
